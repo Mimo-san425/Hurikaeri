@@ -6,67 +6,70 @@
 <title>常任委員会のふりかえり</title>
 
 <style>
-body{
-  font-family:"UD デジタル 教科書体 N-R","Hiragino Sans","Noto Sans JP",sans-serif;
-  background:#fafafa;
-}
-.sheet{
-  max-width:900px;
-  margin:20px auto;
-  background:#fff;
-  border:1px solid #ccc;
-  border-radius:12px;
-  padding:20px;
-}
-h1{margin-top:0}
+  body{
+    font-family:"UD デジタル 教科書体 N-R","Hiragino Sans","Noto Sans JP",sans-serif;
+    background:#fafafa;
+    line-height:1.6;
+  }
+  .sheet{
+    max-width:900px;
+    margin:20px auto;
+    background:#fff;
+    border:1px solid #ccc;
+    border-radius:12px;
+    padding:20px;
+  }
+  h1{margin-top:0}
 
-.step{
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:15px;
-  margin-bottom:15px;
-}
+  .step{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:15px;
+  }
 
-textarea,input[type=text]{
-  width:100%;
-  font-size:16px;
-  padding:8px;
-  border-radius:6px;
-  border:1px solid #bbb;
-  box-sizing:border-box;
-}
-textarea{min-height:90px}
+  textarea,input[type=text]{
+    width:100%;
+    font-size:16px;
+    padding:8px;
+    border-radius:6px;
+    border:1px solid #bbb;
+    box-sizing:border-box;
+  }
+  textarea{min-height:300px}
 
-#result{
-  min-height:300px;
-}
+  #result{
+    min-height:300px;
+    white-space:pre-wrap;
+  }
 
-.radio-group label{
-  display:block;
-  margin:6px 0;
-  cursor:pointer;
-}
+  .radio-group label,
+  .check-group label{
+    display:block;
+    margin:6px 0;
+    cursor:pointer;
+  }
 
-ruby rt{
-  font-size:0.55em;
-}
+  ruby rt{
+    font-size:0.55em;
+  }
 
-button{
-  padding:10px 14px;
-  font-size:14px;
-  border-radius:8px;
-  border:1px solid #aaa;
-  background:#f5f5f5;
-  cursor:pointer;
-  margin-right:6px;
-}
+  button{
+    padding:10px 14px;
+    font-size:14px;
+    border-radius:8px;
+    border:1px solid #aaa;
+    background:#f5f5f5;
+    cursor:pointer;
+    margin-right:6px;
+  }
 
-/* 印刷（PDF）用 */
-@media print{
-  button{display:none;}
-  body{background:#fff;}
-  .sheet{border:none;}
-}
+  @media print{
+    button{display:none;}
+    body{background:#fff;}
+    .sheet{border:none;}
+    .step{border-color:#eee}
+  }
 </style>
 </head>
 
@@ -74,40 +77,47 @@ button{
 <div class="sheet">
 
   <h1>
-    <ruby>常任委員会<rt>じょうにんいいんかい</rt></ruby>のふりかえりを
+    <ruby>常任委員会<rt>じょうにん いいんかい</rt></ruby>のふりかえりを
     <ruby>書<rt>か</rt></ruby>こう
   </h1>
 
-  <h2>① <ruby>常任委員会<rt>じょうにんいいんかい</rt></ruby>で<ruby>司会<rt>しかい</rt></ruby>や<ruby>書記<rt>しょき</rt></ruby>をしましたか
-
-<h2>
+  <!-- ① 役割 -->
+  <div class="step">
+    <h2>① <ruby>常任委員会<rt>じょうにん いいんかい</rt></ruby>で
+      <ruby>司会<rt>しかい</rt></ruby>や
+      <ruby>書記<rt>しょき</rt></ruby>をしましたか
+    </h2>
 
     <div class="radio-group">
       <label><input type="radio" name="choice" value="司会"><ruby>司会<rt>しかい</rt></ruby></label>
       <label><input type="radio" name="choice" value="書記"><ruby>書記<rt>しょき</rt></ruby></label>
-　　　<label><input type="radio" name="choice" value="両方"><ruby>両方<rt>りょうほう</rt></ruby></label>
-　　　<label><input type="radio" name="choice" value="どちらもやっていない"><ruby>どちらもやっていない</ruby></label>
-          
-  </div>
-
-  <div class="step">
-    <h2>② <ruby>常任委員会<rt>じょうにんいいんかい</rt></ruby>で<ruby>やったことを<ruby>書<rt>か</rt></ruby>きましょう。</h2>
-
-
-    <p style="margin:6px 0 8px; color:#444;">
-      （例：<u>月の目標を考える</u>／<u>目標をていねいに書く</u>）
-    </p>
-    <input type="text" id="action" placeholder="（例：月の目標を考える／目標をていねいに書く">
-  </div>
-
-  <div class="step">
-    <h2>③ <ruby>来年度<rt>らいねんど</rt></ruby>の<ruby>常任委員会<rt>じょうにんいいんかい</rt>へのアドバイス</ruby></h2>
-    <input type="text" id="reason" placeholder="自由に入力" >
-      </label>
+      <label><input type="radio" name="choice" value="両方"><ruby>両方<rt>りょうほう</rt></ruby></label>
+      <label><input type="radio" name="choice" value="どちらもやっていない">どちらもやっていない</label>
     </div>
   </div>
 
-  
+  <!-- ② やったこと（複数選択式） -->
+  <div class="step">
+    <h2>② <ruby>常任委員会<rt>じょうにん いいんかい</rt></ruby>でやったことを選びましょう（複数可）</h2>
+    <div class="check-group">
+      <label><input type="checkbox" name="action_choice" value="月の予定を考える"> 月の予定を考える</label>
+      <label><input type="checkbox" name="action_choice" value="目標を丁寧に書く"> 目標を丁寧に書く</label>
+      <label>
+        <input type="checkbox" id="actionOtherCheck" name="action_choice" value="__other__">
+        その他（入力する）
+      </label>
+      <input type="text" id="actionOtherText" disabled placeholder="例：係の仕事を分担する など">
+    </div>
+  </div>
+
+  <!-- ③ 来年度へのアドバイス -->
+  <div class="step">
+    <h2>③ <ruby>来年度<rt>らいねんど</rt></ruby>の
+      <ruby>常任委員会<rt>じょうにん いいんかい</rt></ruby>へのアドバイス</h2>
+    <input type="text" id="reason" placeholder="自由に入力">
+  </div>
+
+  <!-- まとめ -->
   <div class="step">
     <h2><ruby>感想<rt>かんそう</rt></ruby>のまとめ</h2>
     <button type="button" onclick="build()">まとめる</button>
@@ -118,87 +128,86 @@ button{
 </div>
 
 <script>
-/* ④「その他」を選んだときだけテキスト入力を有効化 */
+// ②「その他」をチェックしたときだけテキスト入力を有効化
 (function(){
-  const radios = document.querySelectorAll('input[name="feeling"]');
-  const otherRadio = document.getElementById('feelingOtherRadio');
-  const otherText  = document.getElementById('feelingOtherText');
+  const otherCheck = document.getElementById('actionOtherCheck');
+  const otherText  = document.getElementById('actionOtherText');
 
   function syncOther(){
-    const selected = document.querySelector('input[name="feeling"]:checked');
-    const isOther = selected && selected.value === '__other__';
-    otherText.disabled = !isOther;
-    if(!isOther){ otherText.value = ""; }
-    if(isOther){ otherText.focus(); }
+    const checked = otherCheck.checked;
+    otherText.disabled = !checked;
+    if(!checked){ otherText.value = ""; }
+    if(checked){ otherText.focus(); }
   }
 
-  radios.forEach(r => r.addEventListener('change', syncOther));
+  otherCheck.addEventListener('change', syncOther);
 })();
 
 function build(){
-  const actionRaw = document.getElementById("action").value.trim();
-  const reasonRaw = document.getElementById("reason").value.trim();
-  const g = document.querySelector('input[name="choice"]:checked');
+  const reasonRaw = (document.getElementById("reason").value || "").trim();
+  const role = document.querySelector('input[name="choice"]:checked');
 
-  // ④ 単一選択の気持ち
-  const f = document.querySelector('input[name="feeling"]:checked');
-  const otherText = document.getElementById('feelingOtherText').value.trim();
+  // ② 複数選択の「やったこと」
+  const checked = Array.from(document.querySelectorAll('input[name="action_choice"]:checked'));
+  const otherText = (document.getElementById('actionOtherText').value || "").trim();
+
+  let actions = [];
+  checked.forEach(c => {
+    if(c.value === '__other__'){
+      if(otherText){ actions.push(otherText); }
+    } else {
+      actions.push(c.value);
+    }
+  });
+
+  // アクション文整形（末尾の「する/して/した/しました」を落としてから結合）
+  actions = actions
+    .map(a => normalizeActionToSuru(a))
+    .filter(a => a && a.length > 0);
 
   let text = [];
 
-  // ① 作業学習
-  if(g){
-    text.push(`わたしは「${g.value}」の作業学習をしました。`);
-  }
-
-  // ② やったこと → 「…をしました。」に自動整形
-  if(actionRaw){
-    const action = normalizeActionToSuru(actionRaw);
-    if(g){
-      text.push(`その作業で、${action}をしました。`);
+  // ① 役割の出力（仕様どおり分岐）
+  if(role){
+    if (role.value === "どちらもやっていない") {
+      text.push("わたしは常任委員会でみんなと目標を考えました。");
+    } else if (role.value === "両方") {
+      text.push("わたしは常任委員会で書記と司会の両方を担当しました。");
     } else {
-      text.push(`${action}をしました。`);
+      text.push(`わたしは常任委員会で「${role.value}」を担当しました。`);
     }
   }
 
-  // ④ 気持ち（単一）
-  let feelingOut = "";
-  if(f){
-    feelingOut = f.value === '__other__' ? (otherText || "") : f.value;
-    if(feelingOut){
-      text.push(`そのときの気持ちは、${feelingOut}です。`);
-    }
+  // ② やったことの出力（選択数で文を調整）
+  if(actions.length === 1){
+    text.push(`その活動で、${actions[0]}をしました。`);
+  } else if(actions.length >= 2){
+    const body = actions.join("、");
+    text.push(`その活動で、${body}などをしました。`);
   }
 
-  // ⑤ 理由（あれば追加）→ 「その理由は、〜です。」
+  // ③ 来年度へのアドバイス
   const reason = normalizeReason(reasonRaw);
   if(reason){
-    text.push(`その理由は、${reason}です。`);
+    text.push(`来年度の常任委員会へのアドバイスは、${reason}。`);
   }
 
   document.getElementById("result").value = text.join("\n\n");
 }
 
-/**
- * ②の入力を「〜をしました」に自然につなぐための軽い前処理
- * - 文末の句点削除
- * - 「しました／した／して／する」等の重複を避ける
- */
+// 「〜をしました」と重複しないよう末尾の「する/して/した/しました」を削除
 function normalizeActionToSuru(str){
-  let s = str.replace(/[。．.]+$/,'').trim();
+  let s = (str || "").replace(/[。．.]+$/,'').trim();
   s = s.replace(/(しました|した|して|する)\s*$/,'').trim();
-  return s || str.trim();
+  return s;
 }
 
-/**
- * ⑤ 理由の末尾句点の整理（「〜から」「〜ため」などでもOK）
- * - 末尾の句点を削るだけに留め、文意は保持
- */
+// 文末の句点整理のみ
 function normalizeReason(str){
-  return str.replace(/[。．.]+$/,'').trim();
+  return (str || "").replace(/[。．.]+$/,'').trim();
 }
 
-/* PDF化 */
+// PDF保存（印刷ダイアログ）
 function makePDF(){
   build();
   window.print();
