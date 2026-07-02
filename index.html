@@ -6,266 +6,136 @@
 <title>七夕 がんばりたいこと作文</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  padding: 10px;
-  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
-  background: linear-gradient(#07183d, #123b7a 65%, #1f5fa8);
-  color: white;
-  text-align: center;
-  min-height: 100vh;
+body{
+  margin:0;
+  padding:10px;
+  font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+  background:linear-gradient(#07183d,#123b7a 65%,#1f5fa8);
+  color:white;
+  text-align:center;
+  min-height:100vh;
 }
 
-/* 固定の星 */
-.stars {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
+.stars{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
   background-image:
     radial-gradient(circle at 12% 18%, #fff 0 2px, transparent 3px),
     radial-gradient(circle at 30% 8%, #ffe680 0 2px, transparent 3px),
     radial-gradient(circle at 58% 15%, #fff 0 2px, transparent 3px),
     radial-gradient(circle at 78% 10%, #ffe680 0 2px, transparent 3px),
-    radial-gradient(circle at 90% 28%, #fff 0 2px, transparent 3px),
-    radial-gradient(circle at 20% 42%, #ffe680 0 2px, transparent 3px),
-    radial-gradient(circle at 66% 40%, #fff 0 2px, transparent 3px);
+    radial-gradient(circle at 90% 28%, #fff 0 2px, transparent 3px);
 }
 
-/* 天の川 */
-.milkyway {
-  position: fixed;
-  top: 70px;
-  left: -10%;
-  width: 120%;
-  height: 80px;
-  background: rgba(255,255,255,0.13);
-  transform: rotate(-10deg);
-  filter: blur(2px);
-  pointer-events: none;
+.milkyway{
+  position:fixed;
+  top:70px;
+  left:-10%;
+  width:120%;
+  height:80px;
+  background:rgba(255,255,255,0.13);
+  transform:rotate(-10deg);
+  filter:blur(2px);
 }
 
-/* 笹 */
-.bamboo {
-  position: fixed;
-  bottom: 0;
-  font-size: 54px;
-  opacity: 0.95;
-  pointer-events: none;
+.bamboo{
+  position:fixed;
+  bottom:0;
+  font-size:54px;
 }
 
-.bamboo.left {
-  left: 8px;
+.bamboo.left{
+  left:8px;
 }
 
-.bamboo.right {
-  right: 8px;
-  transform: scaleX(-1);
+.bamboo.right{
+  right:8px;
+  transform:scaleX(-1);
 }
 
-.container {
-  max-width: 950px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
+.container{
+  max-width:950px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
 }
 
-h1 {
-  font-size: 30px;
-  margin: 10px 0 4px;
+h1{
+  font-size:30px;
 }
 
-.subtitle {
-  font-size: 18px;
-  margin: 0 0 10px;
+.subtitle{
+  font-size:18px;
 }
 
-.box {
-  background: rgba(255,255,255,0.97);
-  color: #1b1b1b;
-  padding: 14px;
-  border-radius: 22px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+.box{
+  background:rgba(255,255,255,0.97);
+  color:#1b1b1b;
+  padding:14px;
+  border-radius:22px;
 }
 
-.section-title {
-  font-size: 22px;
-  font-weight: bold;
-  margin: 14px 0 8px;
-  color: #123b7a;
+.section-title{
+  font-size:22px;
+  font-weight:bold;
+  margin:14px 0;
+  color:#123b7a;
 }
 
-.choice-area {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 9px;
-  margin-bottom: 10px;
+.choice-area{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
 }
 
-.choice-btn {
-  font-size: 18px;
-  padding: 12px 6px;
-  border: 3px solid #b7d7ff;
-  border-radius: 16px;
-  background: #eef7ff;
-  color: #123b7a;
-  cursor: pointer;
-  min-height: 68px;
-  font-weight: bold;
-  line-height: 1.35;
+.choice-btn{
+  font-size:18px;
+  padding:12px;
+  border-radius:16px;
+  border:3px solid #b7d7ff;
+  background:#eef7ff;
+  color:#123b7a;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.choice-btn:active {
-  transform: scale(0.97);
+.choice-btn.selected{
+  background:#ffe680;
+  border-color:#ff9f1c;
 }
 
-.choice-btn.selected {
-  background: #ffe680;
-  border-color: #ff9f1c;
-  color: #222;
-  transform: scale(1.03);
+.free-input{
+  width:90%;
+  padding:12px;
+  font-size:20px;
+  margin:15px auto;
+  display:block;
+  border-radius:12px;
+  border:2px solid #7ab8ff;
 }
 
-.selected-display {
-  background: #f3f8ff;
-  border: 3px dashed #7ab8ff;
-  border-radius: 16px;
-  padding: 10px;
-  margin: 6px auto 10px;
-  font-size: 19px;
-  font-weight: bold;
-  color: #123b7a;
-  width: 95%;
-  line-height: 1.5;
+.selected-display{
+  background:#f3f8ff;
+  border:3px dashed #7ab8ff;
+  border-radius:16px;
+  padding:10px;
+  margin-top:10px;
+  color:#123b7a;
+  font-size:20px;
+  font-weight:bold;
 }
 
-.main-btn {
-  font-size: 23px;
-  padding: 14px 24px;
-  margin: 10px 5px 0;
-  border-radius: 16px;
-  border: none;
-  background: #ffd166;
-  color: #222;
-  font-weight: bold;
-  cursor: pointer;
+ruby{
+  ruby-position:over;
 }
 
-.clear-btn {
-  background: #dbeafe;
-}
-
-.result-wrap {
-  margin-top: 16px;
-  display: none;
-}
-
-.tanzaku {
-  background: linear-gradient(#fff7b8, #ffe680);
-  color: #1b1b1b;
-  width: 92%;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 18px 16px 28px;
-  border-radius: 10px 10px 20px 20px;
-  border-top: 16px solid #ff6b9a;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.25);
-  position: relative;
-}
-
-.tanzaku::before {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  background: white;
-  border-radius: 50%;
-  transform: translateX(-50%);
-}
-
-.result {
-  font-size: 24px;
-  line-height: 1.8;
-  font-weight: bold;
-  text-align: left;
-}
-
-.message {
-  margin-top: 10px;
-  font-size: 24px;
-  color: #ffdf5d;
-  font-weight: bold;
-}
-
-/* ふりがな */
-ruby {
-  ruby-position: over;
-}
-
-rt {
-  font-size: 0.5em;
-  color: #444;
-}
-
-/* スマホ・タブレット対応 */
-@media (max-width: 760px) {
-  .choice-area {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .choice-btn {
-    font-size: 17px;
-    min-height: 64px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding: 8px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .subtitle {
-    font-size: 15px;
-  }
-
-  .choice-area {
-    grid-template-columns: 1fr;
-  }
-
-  .choice-btn {
-    font-size: 18px;
-    min-height: 56px;
-    padding: 10px 6px;
-  }
-
-  .section-title {
-    font-size: 20px;
-  }
-
-  .selected-display {
-    font-size: 17px;
-  }
-
-  .result {
-    font-size: 20px;
-  }
-
-  .message {
-    font-size: 20px;
-  }
-
-  .bamboo {
-    font-size: 38px;
-  }
+rt{
+  font-size:0.5em;
 }
 </style>
 </head>
@@ -274,222 +144,329 @@ rt {
 
 <div class="stars"></div>
 <div class="milkyway"></div>
+
 <div class="bamboo left">🎋</div>
 <div class="bamboo right">🎋</div>
 
 <div class="container">
 
-  <h1>🎋 七夕 がんばりたいこと作文 🎋</h1>
-  <p class="subtitle">高等部向け　選んで長い文を作ろう</p>
+<h1>🎋 七夕 がんばりたいこと作文 🎋</h1>
 
-  <div class="box">
+<p class="subtitle">
+えらんだり じぶんで かいたりして ぶんを つくろう
+</p>
 
-    <div class="section-title">① いま がんばりたいことを選ぼう</div>
+<div class="box">
 
-    <div class="choice-area" id="goalChoices">
-      <button class="choice-btn" onclick="selectChoice('goal','実習をがんばる', this)">
-        <ruby>実習<rt>じっしゅう</rt></ruby>を<br>がんばる
-      </button>
+<div class="section-title">
+① いま がんばりたいことを えらぼう
+</div>
 
-      <button class="choice-btn" onclick="selectChoice('goal','仕事をがんばる', this)">
-        <ruby>仕事<rt>しごと</rt></ruby>を<br>がんばる
-      </button>
+<div class="choice-area" id="goalChoices">
 
-      <button class="choice-btn" onclick="selectChoice('goal','あいさつができるようになる', this)">
-        あいさつが<br>できるようになる
-      </button>
+<button class="choice-btn"
+onclick="selectChoice('goal','実習をがんばる',this)">
+<ruby>実習<rt>じっしゅう</rt></ruby>を<br>
+がんばる
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('goal','報告・連絡・相談ができるようになる', this)">
-        <ruby>報告<rt>ほうこく</rt></ruby>・<ruby>連絡<rt>れんらく</rt></ruby>・<ruby>相談<rt>そうだん</rt></ruby>が<br>できるようになる
-      </button>
+<button class="choice-btn"
+onclick="selectChoice('goal','作業をがんばる',this)">
+<ruby>作業<rt>さぎょう</rt></ruby>を<br>
+がんばる
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('goal','自分でできることを増やす', this)">
-        <ruby>自分<rt>じぶん</rt></ruby>でできることを<br><ruby>増<rt>ふ</rt></ruby>やす
-      </button>
+<button class="choice-btn"
+onclick="selectChoice('goal','あいさつができるようになる',this)">
+あいさつが<br>
+できるようになる
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('goal','時間を守って行動する', this)">
-        <ruby>時間<rt>じかん</rt></ruby>を<ruby>守<rt>まも</rt></ruby>って<br><ruby>行動<rt>こうどう</rt></ruby>する
-      </button>
+<button class="choice-btn"
+onclick="selectChoice('goal','報告・連絡・相談ができるようになる',this)">
+<ruby>報告<rt>ほうこく</rt></ruby>・
+<ruby>連絡<rt>れんらく</rt></ruby>・
+<ruby>相談<rt>そうだん</rt></ruby><br>
+ができるようになる
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('goal','お金を計画的に使う', this)">
-        お<ruby>金<rt>かね</rt></ruby>を<br><ruby>計画的<rt>けいかくてき</rt></ruby>に<ruby>使<rt>つか</rt></ruby>う
-      </button>
+<button class="choice-btn"
+onclick="selectChoice('goal','自分でできることを増やす',this)">
+<ruby>自分<rt>じぶん</rt></ruby>でできることを<br>
+<ruby>増<rt>ふ</rt></ruby>やす
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('goal','料理ができるようになる', this)">
-        <ruby>料理<rt>りょうり</rt></ruby>が<br>できるようになる
-      </button>
+<button class="choice-btn"
+onclick="selectChoice('goal','時間を守って行動する',this)">
+<ruby>時間<rt>じかん</rt></ruby>を
+<ruby>守<rt>まも</rt></ruby>って<br>
+<ruby>行動<rt>こうどう</rt></ruby>する
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('goal','掃除や片付けをがんばる', this)">
-        <ruby>掃除<rt>そうじ</rt></ruby>や<ruby>片付<rt>かたづ</rt></ruby>けを<br>がんばる
-      </button>
+<button class="choice-btn"
+onclick="selectChoice('goal','お金を計画的に使う',this)">
+お<ruby>金<rt>かね</rt></ruby>を<br>
+<ruby>計画的<rt>けいかくてき</rt></ruby>に
+<ruby>使<rt>つか</rt></ruby>う
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('goal','友だちとよい関係をつくる', this)">
-        <ruby>友<rt>とも</rt></ruby>だちと<br>よい<ruby>関係<rt>かんけい</rt></ruby>をつくる
-      </button>
+<button class="choice-btn"
+onclick="selectChoice('goal','料理ができるようになる',this)">
+<ruby>料理<rt>りょうり</rt></ruby>が<br>
+できるようになる
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('goal','体力をつける', this)">
-        <ruby>体力<rt>たいりょく</rt></ruby>を<br>つける
-      </button>
+<button class="choice-btn"
+onclick="selectChoice('goal','掃除や片付けをがんばる',this)">
+<ruby>掃除<rt>そうじ</rt></ruby>や
+<ruby>片付<rt>かたづ</rt></ruby>けを<br>
+がんばる
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('goal','毎日元気に登校する', this)">
-        <ruby>毎日<rt>まいにち</rt></ruby><ruby>元気<rt>げんき</rt></ruby>に<br><ruby>登校<rt>とうこう</rt></ruby>する
-      </button>
-    </div>
+<button class="choice-btn"
+onclick="selectChoice('goal','友だちとよい関係をつくる',this)">
+<ruby>友<rt>とも</rt></ruby>だちと<br>
+よい
+<ruby>関係<rt>かんけい</rt></ruby>をつくる
+</button>
 
-    <div class="selected-display" id="goalDisplay">
-      選んだこと：まだです
-    </div>
+<button class="choice-btn"
+onclick="selectChoice('goal','体力をつける',this)">
+<ruby>体力<rt>たいりょく</rt></ruby>を<br>
+つける
+</button>
 
-    <div class="section-title">② なぜならを選ぼう</div>
+<button class="choice-btn"
+onclick="selectChoice('goal','毎日元気に登校する',this)">
+<ruby>毎日<rt>まいにち</rt></ruby>
+<ruby>元気<rt>げんき</rt></ruby>に<br>
+<ruby>登校<rt>とうこう</rt></ruby>する
+</button>
 
-    <div class="choice-area" id="reasonChoices">
-      <button class="choice-btn" onclick="selectChoice('reason','将来に役立つから', this)">
-        <ruby>将来<rt>しょうらい</rt></ruby>に<br><ruby>役立<rt>やくだ</rt></ruby>つから
-      </button>
+</div>
 
-      <button class="choice-btn" onclick="selectChoice('reason','働くために大切だから', this)">
-        <ruby>働<rt>はたら</rt></ruby>くために<br><ruby>大切<rt>たいせつ</rt></ruby>だから
-      </button>
+<input
+id="goalInput"
+class="free-input"
+type="text"
+placeholder="じぶんで かくひとは こちら">
 
-      <button class="choice-btn" onclick="selectChoice('reason','社会に出たときに必要だから', this)">
-        <ruby>社会<rt>しゃかい</rt></ruby>に<ruby>出<rt>で</rt></ruby>たときに<br><ruby>必要<rt>ひつよう</rt></ruby>だから
-      </button>
+<div class="selected-display" id="goalDisplay">
+えらんだこと：まだです
+</div>
 
-      <button class="choice-btn" onclick="selectChoice('reason','自分に自信をつけたいから', this)">
-        <ruby>自分<rt>じぶん</rt></ruby>に<ruby>自信<rt>じしん</rt></ruby>を<br>つけたいから
-      </button>
+<div class="section-title">
+② なぜならを えらぼう
+</div>
 
-      <button class="choice-btn" onclick="selectChoice('reason','家族を安心させたいから', this)">
-        <ruby>家族<rt>かぞく</rt></ruby>を<br><ruby>安心<rt>あんしん</rt></ruby>させたいから
-      </button>
+<div class="choice-area" id="reasonChoices">
 
-      <button class="choice-btn" onclick="selectChoice('reason','できることを増やしたいから', this)">
-        できることを<br><ruby>増<rt>ふ</rt></ruby>やしたいから
-      </button>
+<button class="choice-btn" onclick="selectChoice('reason','将来に役立つから',this)">
+<ruby>将来<rt>しょうらい</rt></ruby>に<br>
+<ruby>役立<rt>やくだ</rt></ruby>つから
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('reason','みんなと気持ちよく過ごしたいから', this)">
-        みんなと<ruby>気持<rt>きも</rt></ruby>ちよく<br><ruby>過<rt>す</rt></ruby>ごしたいから
-      </button>
+<button class="choice-btn" onclick="selectChoice('reason','働くために大切だから',this)">
+<ruby>働<rt>はたら</rt></ruby>くために<br>
+<ruby>大切<rt>たいせつ</rt></ruby>だから
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('reason','続ける力をつけたいから', this)">
-        <ruby>続<rt>つづ</rt></ruby>ける<ruby>力<rt>ちから</rt></ruby>を<br>つけたいから
-      </button>
+<button class="choice-btn" onclick="selectChoice('reason','社会に出たときに必要だから',this)">
+<ruby>社会<rt>しゃかい</rt></ruby>に
+<ruby>出<rt>で</rt></ruby>たときに<br>
+<ruby>必要<rt>ひつよう</rt></ruby>だから
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('reason','人の役に立ちたいから', this)">
-        <ruby>人<rt>ひと</rt></ruby>の<ruby>役<rt>やく</rt></ruby>に<br><ruby>立<rt>た</rt></ruby>ちたいから
-      </button>
-    </div>
+<button class="choice-btn" onclick="selectChoice('reason','自分に自信をつけたいから',this)">
+<ruby>自分<rt>じぶん</rt></ruby>に
+<ruby>自信<rt>じしん</rt></ruby>を<br>
+つけたいから
+</button>
 
-    <div class="selected-display" id="reasonDisplay">
-      選んだ理由：まだです
-    </div>
+<button class="choice-btn" onclick="selectChoice('reason','家族を安心させたいから',this)">
+<ruby>家族<rt>かぞく</rt></ruby>を<br>
+<ruby>安心<rt>あんしん</rt></ruby>させたいから
+</button>
 
-    <div class="section-title">③ そのために何をするか選ぼう</div>
+<button class="choice-btn" onclick="selectChoice('reason','できることを増やしたいから',this)">
+できることを<br>
+<ruby>増<rt>ふ</rt></ruby>やしたいから
+</button>
 
-    <div class="choice-area" id="actionChoices">
-      <button class="choice-btn" onclick="selectChoice('action','時間を守る', this)">
-        <ruby>時間<rt>じかん</rt></ruby>を<br><ruby>守<rt>まも</rt></ruby>る
-      </button>
+<button class="choice-btn" onclick="selectChoice('reason','みんなと気持ちよく過ごしたいから',this)">
+みんなと
+<ruby>気持<rt>きも</rt></ruby>ちよく<br>
+<ruby>過<rt>す</rt></ruby>ごしたいから
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('action','あいさつをする', this)">
-        あいさつを<br>する
-      </button>
+<button class="choice-btn" onclick="selectChoice('reason','続ける力をつけたいから',this)">
+<ruby>続<rt>つづ</rt></ruby>ける
+<ruby>力<rt>ちから</rt></ruby>を<br>
+つけたいから
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('action','人の話をよく聞く', this)">
-        <ruby>人<rt>ひと</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>を<br>よく<ruby>聞<rt>き</rt></ruby>く
-      </button>
+<button class="choice-btn" onclick="selectChoice('reason','人の役に立ちたいから',this)">
+<ruby>人<rt>ひと</rt></ruby>の
+<ruby>役<rt>やく</rt></ruby>に<br>
+<ruby>立<rt>た</rt></ruby>ちたいから
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('action','毎日少しずつ練習する', this)">
-        <ruby>毎日<rt>まいにち</rt></ruby><ruby>少<rt>すこ</rt></ruby>しずつ<br><ruby>練習<rt>れんしゅう</rt></ruby>する
-      </button>
+</div>
 
-      <button class="choice-btn" onclick="selectChoice('action','分からないときは質問する', this)">
-        <ruby>分<rt>わ</rt></ruby>からないときは<br><ruby>質問<rt>しつもん</rt></ruby>する
-      </button>
+<div class="selected-display" id="reasonDisplay">
+えらんだ理由：まだです
+</div>
 
-      <button class="choice-btn" onclick="selectChoice('action','最後まであきらめない', this)">
-        <ruby>最後<rt>さいご</rt></ruby>まで<br>あきらめない
-      </button>
+<div class="section-title">
+③ そのために することを えらぼう
+</div>
 
-      <button class="choice-btn" onclick="selectChoice('action','身だしなみを整える', this)">
-        <ruby>身<rt>み</rt></ruby>だしなみを<br><ruby>整<rt>ととの</rt></ruby>える
-      </button>
+<div class="choice-area" id="actionChoices">
 
-      <button class="choice-btn" onclick="selectChoice('action','落ち着いて行動する', this)">
-        <ruby>落<rt>お</rt></ruby>ち<ruby>着<rt>つ</rt></ruby>いて<br><ruby>行動<rt>こうどう</rt></ruby>する
-      </button>
+<button class="choice-btn" onclick="selectChoice('action','時間を守る',this)">
+<ruby>時間<rt>じかん</rt></ruby>を<br>
+<ruby>守<rt>まも</rt></ruby>る
+</button>
 
-      <button class="choice-btn" onclick="selectChoice('action','先生や友だちに相談する', this)">
-        <ruby>先生<rt>せんせい</rt></ruby>や<ruby>友<rt>とも</rt></ruby>だちに<br><ruby>相談<rt>そうだん</rt></ruby>する
-      </button>
-    </div>
+<button class="choice-btn" onclick="selectChoice('action','あいさつをする',this)">
+あいさつをする
+</button>
 
-    <div class="selected-display" id="actionDisplay">
-      選んだ行動：まだです
-    </div>
+<button class="choice-btn" onclick="selectChoice('action','人の話をよく聞く',this)">
+<ruby>人<rt>ひと</rt></ruby>の
+<ruby>話<rt>はなし</rt></ruby>を<br>
+よく
+<ruby>聞<rt>き</rt></ruby>く
+</button>
 
-    <button class="main-btn" onclick="makeSentence()">⭐ 文をつくる ⭐</button>
-    <button class="main-btn clear-btn" onclick="clearAll()">もう一度</button>
+<button class="choice-btn" onclick="selectChoice('action','毎日少しずつ練習する',this)">
+<ruby>毎日<rt>まいにち</rt></ruby>
+<ruby>少<rt>すこ</rt></ruby>しずつ<br>
+<ruby>練習<rt>れんしゅう</rt></ruby>する
+</button>
 
-  </div>
+<button class="choice-btn" onclick="selectChoice('action','分からないときは質問する',this)">
+<ruby>分<rt>わ</rt></ruby>からないときは<br>
+<ruby>質問<rt>しつもん</rt></ruby>する
+</button>
 
-  <div class="result-wrap" id="resultWrap">
-    <div class="tanzaku">
-      <div class="result" id="result"></div>
-    </div>
-    <div class="message" id="message"></div>
-  </div>
+<button class="choice-btn" onclick="selectChoice('action','最後まであきらめない',this)">
+<ruby>最後<rt>さいご</rt></ruby>まで<br>
+あきらめない
+</button>
+
+<button class="choice-btn" onclick="selectChoice('action','身だしなみを整える',this)">
+<ruby>身<rt>み</rt></ruby>だしなみを<br>
+<ruby>整<rt>ととの</rt></ruby>える
+</button>
+
+<button class="choice-btn" onclick="selectChoice('action','落ち着いて行動する',this)">
+<ruby>落<rt>お</rt></ruby>ち
+<ruby>着<rt>つ</rt></ruby>いて<br>
+<ruby>行動<rt>こうどう</rt></ruby>する
+</button>
+
+<button class="choice-btn" onclick="selectChoice('action','先生や友だちに相談する',this)">
+<ruby>先生<rt>せんせい</rt></ruby>や
+<ruby>友<rt>とも</rt></ruby>だちに<br>
+<ruby>相談<rt>そうだん</rt></ruby>する
+</button>
+
+</div>
+
+<div class="selected-display" id="actionDisplay">
+えらんだ行動：まだです
+</div>
+
+<button class="main-btn" onclick="makeSentence()">
+⭐ 文をつくる ⭐
+</button>
+
+<button class="main-btn clear-btn" onclick="clearAll()">
+もう一度
+</button>
+
+</div>
+
+<div class="result-wrap" id="resultWrap">
+<div class="tanzaku">
+<div class="result" id="result"></div>
+</div>
+
+<div class="message" id="message"></div>
+
+</div>
 
 </div>
 
 <script>
+
 let selectedGoal = "";
 let selectedReason = "";
 let selectedAction = "";
 
-function selectChoice(type, text, button) {
-  if (type === "goal") {
-    selectedGoal = text;
+function selectChoice(type,text,button){
+
+  if(type==="goal"){
+    selectedGoal=text;
     document.getElementById("goalDisplay").innerHTML =
-      "選んだこと：" + text;
+      "えらんだこと：" + text;
     clearSelected("goalChoices");
   }
 
-  if (type === "reason") {
-    selectedReason = text;
+  if(type==="reason"){
+    selectedReason=text;
     document.getElementById("reasonDisplay").innerHTML =
-      "選んだ理由：" + text;
+      "えらんだ理由：" + text;
     clearSelected("reasonChoices");
   }
 
-  if (type === "action") {
-    selectedAction = text;
+  if(type==="action"){
+    selectedAction=text;
     document.getElementById("actionDisplay").innerHTML =
-      "選んだ行動：" + text;
+      "えらんだ行動：" + text;
     clearSelected("actionChoices");
   }
 
   button.classList.add("selected");
 }
 
-function clearSelected(areaId) {
-  const buttons = document.getElementById(areaId).querySelectorAll("button");
-  buttons.forEach(function(btn) {
+function clearSelected(areaId){
+
+  const buttons =
+    document.getElementById(areaId)
+    .querySelectorAll("button");
+
+  buttons.forEach(btn=>{
     btn.classList.remove("selected");
   });
+
 }
 
-function makeSentence() {
-  if (selectedGoal === "" || selectedReason === "" || selectedAction === "") {
+function makeSentence(){
+
+  const customGoal =
+    document.getElementById("goalInput").value.trim();
+
+  const goal =
+    customGoal !== ""
+      ? customGoal
+      : selectedGoal;
+
+  if(
+    goal === "" ||
+    selectedReason === "" ||
+    selectedAction === ""
+  ){
+
     document.getElementById("resultWrap").style.display = "block";
+
     document.getElementById("result").innerHTML =
       "① がんばりたいこと<br>" +
       "② なぜなら<br>" +
       "③ そのために<br><br>" +
-      "3つを選んでください。";
+      "３つえらんでください";
 
-    document.getElementById("message").innerHTML =
-      "🌟 もう少しです";
     return;
   }
 
@@ -497,34 +474,42 @@ function makeSentence() {
 
   document.getElementById("result").innerHTML =
     "わたしが <ruby>今<rt>いま</rt></ruby> がんばりたいことは、<br>" +
-    "「" + selectedGoal + "」ことです。<br><br>" +
+    "「" + goal + "」ことです。<br><br>" +
     "なぜなら、<br>" +
-    "「" + selectedReason + "」です。<br><br>" +
+    "「" + selectedReason + "」からです。<br><br>" +
     "そのために、<br>" +
     "「" + selectedAction + "」ことを がんばります。";
 
   document.getElementById("message").innerHTML =
-    "✨ できました！すてきな文章ですね ✨";
+    "✨ できました！ ✨";
+
 }
 
-function clearAll() {
+function clearAll(){
+
   selectedGoal = "";
   selectedReason = "";
   selectedAction = "";
 
+  document.getElementById("goalInput").value = "";
+
   document.getElementById("goalDisplay").innerHTML =
-    "選んだこと：まだです";
+    "えらんだこと：まだです";
+
   document.getElementById("reasonDisplay").innerHTML =
-    "選んだ理由：まだです";
+    "えらんだ理由：まだです";
+
   document.getElementById("actionDisplay").innerHTML =
-    "選んだ行動：まだです";
+    "えらんだ行動：まだです";
 
   document.getElementById("resultWrap").style.display = "none";
 
   clearSelected("goalChoices");
   clearSelected("reasonChoices");
   clearSelected("actionChoices");
+
 }
+
 </script>
 
 </body>
